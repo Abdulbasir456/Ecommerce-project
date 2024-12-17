@@ -17,7 +17,7 @@ async function registerUser(name, email, password) {
 
         if (response.ok) {
             alert('Registration successful!');
-            window.location.href = '/login.html';
+            window.location.href = './login.html';
         } else {
             alert(data.message || 'Registration failed!');
         }
@@ -29,14 +29,56 @@ async function registerUser(name, email, password) {
     }
 }
 
-document.getElementById('registerForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+// User Login
 
-    console.log('Form submitted with:', {name, email, password });
+async function loginUser(email, password) {
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
 
-    registerUser(name, email, password);
+        const data = await response.json();
 
+        if (response.ok) {
+            alert('Login successful!');
+            window.location.href = './index.html';
+        } else {
+            alert(data.message || 'Login failed!');
+        }
+    } catch (error) {
+        console.error('Error logging in user:', error);
+        alert('An error occured. Please try again.');
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // User Registration Usage
+    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        console.log('Form submitted with:', { name, email, password });
+        registerUser(name, email, password);
+    });
+
+    // User Login Usage
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        loginUser(email, password);
+    });
 });
+
+
+
+
+
