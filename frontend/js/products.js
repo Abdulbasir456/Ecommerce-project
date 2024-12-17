@@ -1,3 +1,5 @@
+
+/*
 async function fetchProducts() {
     try {
         const response = await fetch('http://localhost:5000/api/products');
@@ -34,3 +36,5 @@ function addToCart(productId) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchProducts);
+
+*/
