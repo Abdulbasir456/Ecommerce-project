@@ -11,6 +11,10 @@ async function registerUser(name, email, password) {
 
         const data = await response.json();
 
+        console.log('Response status:', response.status);
+        console.log('Response data:', data);
+
+
         if (response.ok) {
             alert('Registration successful!');
             window.location.href = '/login.html';
@@ -30,6 +34,8 @@ document.getElementById('registerForm').addEventListener('submit', (e) => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    console.log('Form submitted with:', {name, email, password });
 
     registerUser(name, email, password);
 
