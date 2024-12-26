@@ -2,12 +2,21 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "start": "node server.js",  
+  "seed": "node scripts/seedProducts.js",  
+  "dev": "concurrently \"npm run start\" \"npm run seed\""  
+},
+
+  "keywords": [
+    "e-commerce",
+    "backend",
+    "nodejs",
+    "express"
+  ],
+  "author": "Abdul Basir Hasan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -17,5 +26,8 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }

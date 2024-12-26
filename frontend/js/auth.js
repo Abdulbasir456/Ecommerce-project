@@ -46,7 +46,7 @@ async function loginUser(email, password) {
         if (response.ok) {
             localStorage.setItem('token', data.token);
             alert('Login successful!');
-            window.location.href = './index.html';
+            window.location.href = './products.html';
         } else {
             alert(data.message || 'Login failed!');
         }
