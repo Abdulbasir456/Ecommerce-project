@@ -1,3 +1,4 @@
+
 async function fetchProducts() {
     try {
         const response = await fetch('http://localhost:5000/api/products');
@@ -43,7 +44,6 @@ function addToCart(productId) {
     cart.push(productId);
     localStorage.setItem('cart', JSON.stringify(cart));
     alert('Product added to cart!');
-
 }
 
 document.addEventListener('DOMContentLoaded', fetchProducts);
