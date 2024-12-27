@@ -4,15 +4,33 @@ const Product = require('../models/Product');
 
 const sampleProducts = [
   {
-    name: 'Nike',
+    name: 'Nike Shoes',
     description: 'Comfortable Shoes',
     price: 59.99,
   },
 
   {
-    name: 'Adidas',
+    name: 'Adidas Shoes',
     description: 'Running Shoes',
     price: 79.99
+  },
+
+  {
+    name: 'Winter Jacket',
+    description: 'Warm and light-weight jacket',
+    price: 80.00
+  },
+
+  {
+    name: 'T-shirt',
+    description: 'A soft cotton T-shirt with a classic fit and simple design',
+    price: 40.00
+  },
+
+  {
+    name: 'Jumper',
+    description: 'A warm, knitted jumper with a classic fit and cozy feel',
+    price: 65.00
   },
 
   // Add more sample products as needed
@@ -27,8 +45,9 @@ async function seedProducts() {
     console.log('Database connected successfully');
 
     // Clear existing products
-    await Product.deleteMany({});
-    console.log('Existing products removed');
+    
+    //await Product.deleteMany({});
+    //console.log('Existing products removed');
 
     // Insert sample products
     await Product.insertMany(sampleProducts, {ordered: false });
