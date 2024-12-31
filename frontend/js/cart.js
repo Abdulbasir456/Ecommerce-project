@@ -4,15 +4,19 @@ async function displayCart() {
     cartContainer.innerHTML = '';
 
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p> Your cart is empty</p>';
+        cartContainer.innerHTML = '<p>Your cart is empty</p>';
         return;
     }
 
     for (const productId of cart) {
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`);
-        const product = await response.json();
+        try {
+            const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+            if (!response.ok) {
+                throw new Error(`Product not found: ${productId}`);
+            }
+            const product = await response.json();
 
-        const cartItem = `
+            const cartItem = `
                 <div class="cart-item">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
@@ -22,8 +26,12 @@ async function displayCart() {
             `;
 
             cartContainer.innerHTML += cartItem;
+        } catch (error) {
+            console.error(`Error fetching product: ${error.message}`);
+        }
     }
 }
+
 
 
 function removeFromCart(productId) {
@@ -33,10 +41,10 @@ function removeFromCart(productId) {
     displayCart();
 }
 
-
 async function checkout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
 
     if (!token) {
         alert('Please log in to proceed with checkout.');
@@ -51,7 +59,7 @@ async function checkout() {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ products: cart }),
+            body: JSON.stringify({ userId, products: cart }),
         });
 
         if (response.ok) {
@@ -60,17 +68,14 @@ async function checkout() {
             window.location.href = '/orders.html';
         } else {
             const data = await response.json();
-            alert(data.message || 'Checkout failed!' );
+            alert(data.message || 'Checkout failed!');
         }
-
-    } catch(error) {
+    } catch (error) {
         console.error('Error during checkout:', error);
-
     }
 }
 
-// Call displayCart on page load
 document.addEventListener('DOMContentLoaded', displayCart);
-
-// Attach checkout event
 document.getElementById('checkoutButton').addEventListener('click', checkout);
+
+
