@@ -1,18 +1,17 @@
 
-
 const express = require('express');
 const Product = require('../models/Product');
 const Order = require('../models/Order');
+const authenticateToken = require('../middleware/authenticateToken');
 
 const router = express.Router();
 
-// Place an order
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
     try {
         const { userId, products } = req.body;
 
-        if (!products || products.length === 0) {
-            return res.status(400).json({ message: 'No products in the order.' });
+        if (!userId || !products || products.length === 0) {
+            return res.status(400).json({ message: 'User ID or products are missing.' });
         }
 
         let totalPrice = 0;
@@ -43,3 +42,4 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+
