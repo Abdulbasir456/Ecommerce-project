@@ -20,6 +20,7 @@ async function fetchProducts() {
         products.forEach((product) => {
             const productCard = `
             <div class="product-card">
+           <img src="http://localhost:5000${product.imageUrl}" alt="${product.name}" />
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <p>Price: £${product.price}</p>
