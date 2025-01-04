@@ -12,6 +12,10 @@ connectDB();
 
 const app = express();
 
+// Middleware for serving static files
+app.use('/images', express.static('public/images'));
+
+
 app.use(cors());
 app.use(express.json());
 
