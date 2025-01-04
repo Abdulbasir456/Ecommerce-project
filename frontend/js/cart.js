@@ -75,7 +75,7 @@ async function checkout() {
         });
 
         console.log('Checkout response status:', response.status);
-
+/*
         if (response.ok) {
             const data = await response.json();
             console.log('Order created:', data);
@@ -91,6 +91,24 @@ async function checkout() {
         console.error('Error during checkout:', error);
     }
 }
+    */
+
+    if (response.ok) {
+        const order = await response.json();
+        localStorage.setItem('currentOrder', JSON.stringify(order));
+        localStorage.removeItem('cart');
+        alert('Order placed successfully!');
+        window.location.href = './orders.html';
+    } else {
+        const data = await response.json();
+        alert(data.message || 'Checkout failed!');
+    }
+    } catch (error) {
+    console.error('Error during checkout:', error);
+    }
+}
+
+
 
 document.addEventListener('DOMContentLoaded', displayCart);
 document.getElementById('checkoutButton').addEventListener('click', checkout);

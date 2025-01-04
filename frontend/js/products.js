@@ -38,7 +38,6 @@ async function fetchProducts() {
 }
 
 // Add product to cart
-
 function addToCart(productId) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(productId);

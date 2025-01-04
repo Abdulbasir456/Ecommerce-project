@@ -34,12 +34,29 @@ router.post('/', authenticateToken, async (req, res) => {
         });
 
         const createdOrder = await order.save();
-        res.status(201).json(createdOrder);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error while placing the order.' });
-    }
-});
+        const populatedOrder = await Order.findById(createdOrder._id).populate('products.product');
+        res.status(201).json(populatedOrder);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Server error while placing the order.' });
+        }
+    });
+
+/*
+    // Get orders for a user
+    router.get('/user/:userId', authenticateToken, async (req, res) => {
+        try {
+            const { userId } = req.params;
+            const orders = await Order.find({ user: userId }).populate('products.product');
+            res.status(200).json(orders);
+        } catch (error) {
+            console.error('Error fetching orders:', error.message);
+            res.status(500).json({ message: 'Server error while fetching orders.' });
+        }
+    });
+*/
+
+
 
 module.exports = router;
 
