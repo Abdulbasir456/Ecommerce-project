@@ -60,6 +60,43 @@ document.addEventListener('DOMContentLoaded', displayOrder);
 
 
 
+/*
+function displayOrders(orders) {
+    const orderContainer = document.getElementById('ordersContainer');
+    if (orders.length === 0) {
+        orderContainer.innerHTML = `<p class="text-center">You have no orders yet.</p>`;
+        return;
+    }
+
+    orders.forEach(order => {
+        const orderElement = document.createElement('div');
+        orderElement.classList.add('order-card');
+        orderElement.innerHTML = `
+            <h2>Order ID: ${order._id}</h2>
+            <h3>Products:</h3>
+            <ul class="product-list">
+                ${order.products.map(p => `
+                    <li class="product-item">
+                        <div class="product-info">
+                            <h4>${p.product.name}</h4>
+                            <p>${p.product.description}</p>
+                            <p>Price: £${p.product.price}</p>
+                            <p>Quantity: ${p.quantity}</p>
+                        </div>
+                    </li>
+                `).join('')}
+            </ul>
+            <p class="total-price">Total Price: £${order.totalPrice}</p>
+        `;
+        orderContainer.appendChild(orderElement);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', fetchOrders);
+*/
+
+
+
 
 /*
 function displayOrders(orders) {

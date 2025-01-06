@@ -16,15 +16,33 @@ async function displayCart() {
                 throw new Error(`Product not found: ${productId}`);
             }
             const product = await response.json();
-
+            /*
             const cartItem = `
                 <div class="cart-item">
+                    <img src="http://localhost:5000${product.imageUrl}" alt="${product.name}" />
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
                     <p>Price: £${product.price}</p>
                     <button onclick="removeFromCart('${productId}')">Remove</button>
                 </div>
             `;
+
+            */
+
+
+            const cartItem = `
+            <div class="cart-item">
+                <img src="http://localhost:5000${product.imageUrl}" alt="${product.name}" />
+                <div class="cart-item-details">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">£${product.price}</p>
+                </div>
+                <div class="cart-item-actions">
+                    <button onclick="removeFromCart('${productId}')">Remove</button>
+                </div>
+            </div>
+        `;
 
             cartContainer.innerHTML += cartItem;
         } catch (error) {
