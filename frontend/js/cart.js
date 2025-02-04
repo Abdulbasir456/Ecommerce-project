@@ -9,13 +9,24 @@ async function displayCart() {
         return;
     }
 
+    let updatedCart = []; // New array for valid products
+
+
+
     for (const productId of cart) {
         try {
             const response = await fetch(`http://localhost:5000/api/products/${productId}`);
             if (!response.ok) {
-                throw new Error(`Product not found: ${productId}`);
+                //throw new Error(`Product not found: ${productId}`);
+
+                console.warn(`Product not found (ID: ${productId}), removing from cart.`);
+                continue; // skip this item
             }
+
             const product = await response.json();
+            updatedCart.push(productId); // Only add valid products
+
+
             /*
             const cartItem = `
                 <div class="cart-item">
@@ -49,6 +60,8 @@ async function displayCart() {
             console.error(`Error fetching product: ${error.message}`);
         }
     }
+
+    localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update cart with only valid products
 }
 
 function removeFromCart(productId) {
