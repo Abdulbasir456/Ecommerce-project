@@ -80,7 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
 */
+
 
 // User Registration
 async function registerUser(name, email, password) {
