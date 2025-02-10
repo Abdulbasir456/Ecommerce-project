@@ -27,20 +27,6 @@ async function displayCart() {
             updatedCart.push(productId); // Only add valid products
 
 
-            /*
-            const cartItem = `
-                <div class="cart-item">
-                    <img src="http://localhost:5000${product.imageUrl}" alt="${product.name}" />
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <p>Price: £${product.price}</p>
-                    <button onclick="removeFromCart('${productId}')">Remove</button>
-                </div>
-            `;
-
-            */
-
-
             const cartItem = `
             <div class="cart-item">
                 <img src="http://localhost:5000${product.imageUrl}" alt="${product.name}" />
@@ -128,8 +114,14 @@ async function checkout() {
         const order = await response.json();
         localStorage.setItem('currentOrder', JSON.stringify(order));
         localStorage.removeItem('cart');
-        alert('Order placed successfully!');
-        window.location.href = './orders.html';
+        //alert('Order placed successfully!');
+        //window.location.href = './orders.html';
+
+        showAlert('Order placed successfully');
+        
+        setTimeout(() => {
+            window.location.href  = './orders.html';
+        }, 2000) //redirect after 2 seconds
     } else {
         const data = await response.json();
         alert(data.message || 'Checkout failed!');
@@ -137,6 +129,16 @@ async function checkout() {
     } catch (error) {
     console.error('Error during checkout:', error);
     }
+}
+
+
+function showAlert(message) {
+    document.getElementById('alertMessage').textContent = message;
+    document.getElementById('customAlert').style.display = 'block';
+}
+
+function closeAlert() {
+    document.getElementById('customAlert').style.display = 'none';
 }
 
 
