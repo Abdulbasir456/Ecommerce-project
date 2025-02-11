@@ -50,6 +50,30 @@
         </div>
     </header>
 
+    <div id="cartIconContainer">
+        <div id="cartIcon">
+            <span id="cartCount">0</span>
+        </div>
+    </div>
+
+    <div id="cartSidebar">
+        <div class="cart-sidebar-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart">&times;</button>
+        </div>
+        <div id="cartSidebarContent"></div>
+        <div class="cart-sidebar-footer">
+            <button id="checkoutFromSidebar" class="btn-primary">Checkout</button>
+        </div>
+    </div>
+
+    <div id="customAlert" class="alert-box">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()"></button>
+    </div>
+
+
+
     <main>
         <h1 class="text-center">Your Shopping Cart</h1>
         <div class="cart-items-container" id="cartContainer"></div>
@@ -59,12 +83,6 @@
     </main>
 
     
-    <div id="customAlert" class="alert-box">
-        <p id="alertMessage"></p>
-        <button onclick="closeAlert()"></button>
-    </div>
-
-
     <footer class="main-footer">
         <p>&copy; 2025 E-Commerce Store. | <a href="privacy.html">Privacy Policy</a></p>
         <div class="social-links">
