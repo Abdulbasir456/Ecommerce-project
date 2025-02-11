@@ -969,6 +969,11 @@ ul li {
     color: white;
 }
 
+.cart-sidebar-header h2 {
+    color: white; 
+    font-size: 22px;  
+}
+
 #closeCart {
     background: none;
     border: none;
