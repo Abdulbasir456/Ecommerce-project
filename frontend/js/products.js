@@ -49,3 +49,5 @@ function addToCart(productId) {
 document.addEventListener('DOMContentLoaded', fetchProducts);
 
 
+
+
