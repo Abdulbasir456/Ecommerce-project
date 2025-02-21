@@ -422,18 +422,18 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
 }
 
+/* Product Card Styling */
 .product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .product-card:hover {
@@ -442,10 +442,10 @@ body {
 }
 
 .product-card img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    max-width: 200px; /* Ensures image size consistency */
+    border-radius: 5px;
 }
 
 .product-card h3 {
@@ -916,9 +916,9 @@ ul li {
 
 /* Cart Icon in Header */
 #cartIconContainer {
-    position: absolute;
-    bottom: 10px;  /* Adjust to position at the bottom */
-    right: 20px;   /* Align to the right */
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Moves the cart to the right side */
     background: #fff;
     border-radius: 50px;
     padding: 10px 15px;
@@ -930,16 +930,18 @@ ul li {
     z-index: 1000;
 }
 
-/* Cart count (red bubble) */
 #cartCount {
-    background: red;
+    background:  #ff6600;
     color: white;
     font-size: 14px;
     font-weight: bold;
     border-radius: 50%;
     padding: 5px 8px;
-    margin-left: 5px;
+    position: absolute;
+    top: 90px;
+    right: 5px; /* Adjusts position to be at the top-right corner */
 }
+
 
 /* Ensure the header has relative positioning for absolute positioning to work */
 .main-header {
