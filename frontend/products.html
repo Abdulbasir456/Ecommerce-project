@@ -36,6 +36,8 @@
 
 -->
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +114,118 @@
     </footer>
 
     <script src="js/products.js"></script>
-    
+
 </body>
 </html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - E-Commerce</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">E-Commerce Store</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li> 
+                    <li><a href="products.html" class="active">Products</a></li> 
+                    <li><a href="cart.html">Cart</a></li> 
+                    <li><a href="contact.html">Contact Us</a></li> 
+                    <li id="adminPanel" style="display: none;"><a href="admin.html">Admin Panel</a></li>
+                    <li id="logout"><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <h2>Discover Our Amazing Products</h2>
+        <p>Find the perfect items to fit your style and needs.</p>
+    </section> 
+
+    <main class="main-content">
+        <div class="container">
+            <div id="searchContainer">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div id="filters">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="accessories">Accessories</option>
+                </select>
+
+                <select id="priceFilter">
+                    <option value="">All Prices</option>
+                    <option value="low">Under £50</option>
+                    <option value="mid">£50 - £100</option>
+                    <option value="high">Over £100</option>
+                </select>
+
+                <button id="applyFilters">Apply Filters</button>
+            </div>
+
+            <div id="productContainer" class="product-grid"></div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 E-Commerce Store. | <a href="privacy.html">Privacy Policy</a></p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+        // Function to check if user is an admin
+        function checkAdmin() {
+            document.addEventListener("DOMContentLoaded", function () {
+                const isAdmin = localStorage.getItem("isAdmin") === "true"; 
+                const adminPanel = document.getElementById("adminPanel");
+
+                console.log("Checking Admin Panel Visibility. isAdmin:", isAdmin); 
+
+                if (adminPanel) {
+                    adminPanel.style.display = isAdmin ? "block" : "none";
+                } else {
+                    console.warn("Admin panel not found in the DOM."); 
+                }
+            });
+        }
+
+        // Call checkAdmin after DOM has loaded
+        checkAdmin();
+
+        // Function to log out
+        function logout() {
+            localStorage.removeItem("token"); 
+            localStorage.removeItem("userId");
+            localStorage.removeItem("isAdmin");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
+
+-->
 

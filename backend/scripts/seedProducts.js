@@ -164,13 +164,13 @@ const sampleProducts = [
     name: 'Classic Denim Jacket',
     description: 'A comfortable and stylish denim jacket perfect for any casual outing.',
     price: 59.99,
-    imageUrl: '/images/jacket1.png',
+    imageUrl: '/images/jacket10.png',
   },
   {
     name: 'Modern Leather Jacket',
     description: 'A sleek leather jacket for a modern and trendy look.',
     price: 89.99,
-    imageUrl: '/images/jacket2.png',
+    imageUrl: '/images/jacket8.png',
   },
   {
     name: 'Insulated Winter Jacket',
@@ -206,7 +206,7 @@ const sampleProducts = [
     name: 'Rainproof Shell Jacket',
     description: 'Durable and waterproof, designed for rainy weather.',
     price: 79.99,
-    imageUrl: '/images/jacket8.png',
+    imageUrl: '/images/jacket2.png',
   },
   {
     name: 'Softshell Hiking Jacket',
@@ -218,7 +218,7 @@ const sampleProducts = [
     name: 'Urban Puffer Jacket',
     description: 'A stylish puffer jacket with maximum warmth for urban settings.',
     price: 99.99,
-    imageUrl: '/images/jacket10.png',
+    imageUrl: '/images/jacket1.png',
   },
   {
     name: 'Slim Fit Jeans',
@@ -230,7 +230,7 @@ const sampleProducts = [
     name: 'Classic Blue Jeans',
     description: 'Timeless blue jeans with a straight-leg fit.',
     price: 39.99,
-    imageUrl: '/images/jeans2.png',
+    imageUrl: '/images/jeans4.png',
   },
   {
     name: 'Distressed Skinny Jeans',
@@ -242,7 +242,7 @@ const sampleProducts = [
     name: 'Relaxed Fit Jeans',
     description: 'Comfortable, loose-fit jeans for everyday wear.',
     price: 45.00,
-    imageUrl: '/images/jeans4.png',
+    imageUrl: '/images/jeans2.png',
   },
   {
     name: 'High-Waist Vintage Jeans',
@@ -254,25 +254,25 @@ const sampleProducts = [
     name: 'Athletic Running Shoes',
     description: 'Lightweight and supportive running shoes for active lifestyles.',
     price: 69.99,
-    imageUrl: '/images/shoe1.png',
+    imageUrl: '/images/shoe3.png',
   },
   {
     name: 'Leather Dress Shoes',
     description: 'Elegant leather shoes perfect for formal occasions.',
     price: 89.99,
-    imageUrl: '/images/shoe2.png',
+    imageUrl: '/images/shoe4.png',
   },
   {
     name: 'Casual Sneakers',
     description: 'Comfortable sneakers for everyday wear.',
     price: 59.99,
-    imageUrl: '/images/shoe3.png',
+    imageUrl: '/images/shoe2.png',
   },
   {
     name: 'Trail Hiking Boots',
     description: 'Rugged boots designed for outdoor trails and tough terrain.',
     price: 99.99,
-    imageUrl: '/images/shoe4.png',
+    imageUrl: '/images/shoe1.png',
   },
   {
     name: 'Slip-On Loafers',
@@ -290,7 +290,7 @@ const sampleProducts = [
     name: 'Cargo Shorts',
     description: 'Durable and functional shorts with multiple pockets.',
     price: 39.99,
-    imageUrl: '/images/shorts1.png',
+    imageUrl: '/images/shorts4.png',
   },
   {
     name: 'Chino Shorts',
@@ -308,7 +308,7 @@ const sampleProducts = [
     name: 'Running Shorts',
     description: 'Lightweight and breathable shorts designed for athletes.',
     price: 24.99,
-    imageUrl: '/images/shorts4.png',
+    imageUrl: '/images/shorts1.png',
   },
   {
     name: 'Beach Shorts',

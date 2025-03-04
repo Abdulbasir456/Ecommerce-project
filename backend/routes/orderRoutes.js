@@ -42,21 +42,6 @@ router.post('/', authenticateToken, async (req, res) => {
         }
     });
 
-/*
-    // Get orders for a user
-    router.get('/user/:userId', authenticateToken, async (req, res) => {
-        try {
-            const { userId } = req.params;
-            const orders = await Order.find({ user: userId }).populate('products.product');
-            res.status(200).json(orders);
-        } catch (error) {
-            console.error('Error fetching orders:', error.message);
-            res.status(500).json({ message: 'Server error while fetching orders.' });
-        }
-    });
-*/
-
-
 
 module.exports = router;
 
