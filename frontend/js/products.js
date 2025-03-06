@@ -57,6 +57,7 @@ function searchProducts(event) {
     displayProducts(filteredProducts);
 }
 
+
 // Add product to cart
 function addToCart(productId) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -67,7 +68,6 @@ function addToCart(productId) {
 
 // Add event listener to search form
 document.getElementById('searchForm').addEventListener('submit', searchProducts);
-
 document.addEventListener('DOMContentLoaded', fetchProducts);
 
 
