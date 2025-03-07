@@ -32,8 +32,8 @@ The website uses **JWT (JSON Web Token) authentication with Bearer tokens** to e
 
 ## Authentication Flow (JWT & Bearer Token)  
 - When a user **registers or logs in**, the server generates a **JWT token**.  
-- This token is stored on the frontend and included in the **Authorization header** using the **Bearer scheme** for protected API requests.  
+- This token is stored on the frontend and included in the **Authorisation header** using the **Bearer scheme** for protected API requests.  
 - Users must send this token to access secured routes (e.g., viewing orders, adding items to the cart).  
 
 ```http
-Authorization: Bearer <your-jwt-token>
+Authorisation: Bearer <your-jwt-token>
